@@ -10,9 +10,9 @@ After 24 hours, HummScroller then sells that token back into stablecoins, and pu
 
 ## 📈 How to Use It?
 
-Install it Via Telegram: <tbd>
+Install it Via Telegram: TBD
 
-Telegram Bot Command: `/hummscroller @chiggimps` -- call the bot and enter your Twitter handle.
+Telegram Bot Command: `/hummscroller @my_handle` -- call the bot and enter your Twitter handle.
 
 This registers a paper "mock" trading account in a Hummingbot instance.
 
@@ -26,11 +26,14 @@ Your most recent 100 Tweets will be scanned for any cashtags, which will then bu
 
 # 📟 Backend
 
-Hosting: <tbd>
+Hosting: TBD
+
+---
 
 Set Twitter [API Keys](https://developer.twitter.com/en/portal/projects-and-apps):
 
 `export TWITTER_HANDLE=elonmusk`
+
 `export TWITTER_API_BEARER=AAAAA...`
 
 Twitter Script: `humscroller.py`
@@ -41,7 +44,9 @@ Twitter Script: `humscroller.py`
 
 Hummingbot Script: `humminggram.py`
 
-Telegram Bot: <tbd>
+---
+
+Telegram Bot: TBD
 
 # 📡 Future Plans
 
