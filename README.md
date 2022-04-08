@@ -16,7 +16,7 @@ Telegram Bot Command: `/hummscroller @my_handle` -- call the bot and enter your 
 
 This registers a paper "mock" trading account in a Hummingbot instance.
 
-Now just keep zoning out on Crypto Twitter! It's scanning tweets that you like, not your own tweets.
+Now just keep zoning out on Crypto Twitter! It's scanning tweets that you like.
 
 # ✨ How it Works
 
@@ -26,32 +26,32 @@ Your most recent 100 Tweets will be scanned for any cashtags, which will then bu
 
 # 📟 Backend
 
-Hosting: TBD
-
----
-
 Set Twitter [API Keys](https://developer.twitter.com/en/portal/projects-and-apps):
 
-`export TWITTER_HANDLE=elonmusk`
+`export TWITTER_HANDLE=elonmusk` -- you can monitor other people's Twitter likes too!
 
-`export TWITTER_API_BEARER=AAAAA...`
+`export TWITTER_API_BEARER=AAAAA...` -- need a Twitter Developer account to use V2 API.
 
-Twitter Script: `humscroller.py`
+Twitter Script: `humscroller.py` -- produces a file `recent_tweet_likes.json`
 
 ![](img/musk_anselm_griffith.png)
 
 ---
 
-Hummingbot Script: `humminggram.py`
+Hummingbot Script: `humminggram.py` -- Performs daily market order trades based on the data.
 
 ---
 
-Telegram Bot: TBD
+Telegram Bot: TBD -- commands like `/humscroller_init @handle`, `/humscroller_stats`, `humscroller_leaderboard`
+
+---
+
+Hosting & Deployment: TBD
 
 # 📡 Future Plans
 
-Additional Twitter Intelligence:
-
+- A Telegram Group "Investment DAO" Game where you compete with members to have the more profitable Crypto Twitter.
+- Use real money, not paper trading.
 - Scan not just likes, but retweets also.
-- Get audio from `Spaces` you were in and correlate that to tokens.
 - AI sentiment classification to break tweets into the bullish and bearish parts.
+- Get audio from `Spaces` you were in, how long you stayed (enjoyed it) and correlate that to tokens.
