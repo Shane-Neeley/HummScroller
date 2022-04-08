@@ -19,11 +19,22 @@ from hummingbot.core.event.events import (
 )
 from hummingbot.strategy.script_strategy_base import Decimal, OrderType, ScriptStrategyBase
 
+# Twitter data
+from hummscroller import HummScroller
+import json
 
-class DCAExample(ScriptStrategyBase):
+########################################
+class Humminggram(ScriptStrategyBase):
     """
     This example shows how to set up a simple strategy to buy a token on fixed (dollar) amount on a regular basis
     """
+
+    with open('recent_tweet_likes.json') as json_file:
+        cashtag_likes = json.load(json_file)
+
+    print(cashtag_likes)
+
+
     #: Define markets to instruct Hummingbot to create connectors on the exchanges and markets you need
     markets = {"binance_paper_trade": {"BTC-USDT"}}
     #: The last time the strategy places a buy order
