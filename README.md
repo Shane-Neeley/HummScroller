@@ -40,6 +40,10 @@ Twitter Script: `humscroller.py` -- produces a file `recent_tweet_likes.json`
 
 Hummingbot Script: `humminggram.py` -- Performs daily market order trades based on the data.
 
+![](img/humminggram_script.png)
+
+**Got to this point where it was buying BTC-USDT, but wasn't updating the paper balance on Hummingbot**
+
 ---
 
 Telegram Bot: TBD -- commands like `/humscroller_init @handle`, `/humscroller_stats`, `humscroller_leaderboard`
@@ -51,6 +55,7 @@ Hosting & Deployment: TBD
 # 📡 Future Plans
 
 - A Telegram Group "Investment DAO" Game where you compete with members to have the more profitable Crypto Twitter.
+- **Countertrading**. Not your twitter handle, because you're smart, but someone who you think is an idiot. Everything they like, you sell.
 - Use real money, not paper trading.
 - Scan not just likes, but retweets also.
 - AI sentiment classification to break tweets into the bullish and bearish parts.

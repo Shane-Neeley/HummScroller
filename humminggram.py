@@ -20,6 +20,11 @@ from hummingbot.core.event.events import (
 from hummingbot.strategy.script_strategy_base import Decimal, OrderType, ScriptStrategyBase
 
 # Twitter data
+import sys
+import os
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, 'HummScroller')
+sys.path.append(filename)
 from hummscroller import HummScroller
 import json
 
@@ -29,30 +34,27 @@ class Humminggram(ScriptStrategyBase):
     This example shows how to set up a simple strategy to buy a token on fixed (dollar) amount on a regular basis
     """
 
-    with open('recent_tweet_likes.json') as json_file:
+    with open(os.path.join(dirname, 'HummScroller', 'recent_tweet_likes.json')) as json_file:
         cashtag_likes = json.load(json_file)
 
-    print(cashtag_likes)
+    print(json.dumps(cashtag_likes))
 
-
-    #: Define markets to instruct Hummingbot to create connectors on the exchanges and markets you need
-    markets = {"binance_paper_trade": {"BTC-USDT"}}
-    #: The last time the strategy places a buy order
-    last_ordered_ts = 0.
-    #: Buying interval (in seconds)
-    buy_interval = 10.
-    #: Buying amount (in dollars - USDT)
-    buy_quote_amount = Decimal("1")
-
+    # Once per tick, perform a buy of every token from twitter likes
     def on_tick(self):
-        # Check if it is time to buy
-        if self.last_ordered_ts < (self.current_timestamp - self.buy_interval):
-            # Lets set the order price to the best bid
-            price = self.connectors["binance_paper_trade"].get_price("BTC-USDT", False)
-            amount = self.buy_quote_amount / price
-            self.buy("binance_paper_trade", "BTC-USDT", amount, OrderType.MARKET, price)
-            self.last_ordered_ts = self.current_timestamp
 
+        # Use these cashtag_likes to look up market pairs
+        for tkn in cashtag_likes:
+            print("buying", tkn)
+            #: Define markets to instruct Hummingbot to create connectors on the exchanges and markets you need
+            pair = tkn + "-USDT"
+            markets = {"binance_paper_trade": {pair}}
+            #: Buying amount (in dollars - USDT)
+            buy_quote_amount = Decimal("10")
+            price = self.connectors["binance_paper_trade"].get_price(pair, False)
+            amount = self.buy_quote_amount / price
+            self.buy("binance_paper_trade", pair, amount, OrderType.MARKET, price)
+
+    #################################################################
     def did_create_buy_order(self, event: BuyOrderCreatedEvent):
         """
         Method called when the connector notifies a buy order has been created
