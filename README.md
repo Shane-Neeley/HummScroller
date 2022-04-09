@@ -44,6 +44,10 @@ Hummingbot Script: `humminggram.py` -- Performs daily market order trades based 
 
 **Got to this point where it was buying BTC-USDT, but wasn't updating the paper balance on Hummingbot**
 
+From Discord: you can see the trade `status`, but there's a bug not reporting the paper balance.
+
+TODO: https://hummingbot.org/operation/export/  ... Export the trades to a file and then make that data available from a Telegram bot, so you can see your daily tweet-like-trade performances.
+
 ---
 
 Telegram Bot: TBD -- commands like `/humscroller_init @handle`, `/humscroller_stats`, `humscroller_leaderboard`
